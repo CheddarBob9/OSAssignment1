@@ -63,9 +63,24 @@ public class MultiThreading {
 
                     // If all 3 sections of a record are found, print them
                     if (sectionsFound == 3) {
-                        System.out.printf("Section 1: %s%n", section1);
-                        System.out.printf("Section 2: %s%n", section2);
-                        System.out.printf("Section 3: %s%n%n", section3);
+                        Thread personThread = new Thread(new Person(section1));
+                        Thread scoresThread = new Thread(new Scores(section2));
+                        Thread discoverThread = new Thread(new Discover(section3));
+
+                        personThread.start();
+                        scoresThread.start();
+                        discoverThread.start();
+
+                        try {
+                            personThread.join();
+                            scoresThread.join();
+                            discoverThread.join();
+                        } catch (InterruptedException e) {
+                            System.out.println("Interrupted: " + e.getMessage());
+                        }
+
+                        /* Spacing */
+                        System.out.println();
 
                         // Reset section Strings and sectionsFound
                         section1 = null; section2 = null; section3 = null;
