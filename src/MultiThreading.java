@@ -26,11 +26,11 @@ public class MultiThreading {
                     starCount++;
                     continue;
 
-                    // If there is whitespace, skip it and restart while loop
+                // If there is whitespace, skip it and restart while loop
                 } else if (Character.isWhitespace(ch)) {
                     continue;
 
-                    // If not asterisk or whitespace, it's in the section
+                // If not asterisk or whitespace, it's in the section
                 } else {
                     inSection = true;
                 }
@@ -51,7 +51,7 @@ public class MultiThreading {
                 } else if (starCount == 3) {
                     section3 = text;
 
-                    // Too many asterisks
+                // Too many asterisks
                 } else {
                     System.out.println("Error, too many asterisks: " + starCount);
                 }
@@ -84,7 +84,7 @@ public class MultiThreading {
                     sectionsFound = 0;
                 } // End if (sectionsFound == 3)
 
-                // Inside section, is whitespace
+            // Inside section, is whitespace
             } else if (Character.isWhitespace(ch)) {
 
                 // Deal with random whitespace
@@ -92,7 +92,7 @@ public class MultiThreading {
                     current.append(' ');
                 }
 
-                // Inside section, not end, not whitespace, write the char
+            // Inside section, not end, not whitespace, write the char
             } else {
                 current.append(ch);
             } // End if (ch == '$')
