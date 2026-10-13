@@ -61,26 +61,30 @@ public class MultiThreading {
                     current.setLength(0); starCount = 0; inSection = false;
                     sectionsFound++;
 
-                    // If all 3 sections of a record are found, print them
+                    /* ===== IF ALL 3 SECTIONS OF A RECORD ARE FOUND MAKE AND SEND THEM TO THREADS ===== */
                     if (sectionsFound == 3) {
                         Thread personThread = new Thread(new Person(section1));
                         Thread scoresThread = new Thread(new Scores(section2));
                         Thread discoverThread = new Thread(new Discover(section3));
 
+                        // Start thread to call run()
                         personThread.start();
                         scoresThread.start();
                         discoverThread.start();
 
+                        // Fully print one thread before the next
                         try {
                             personThread.join();
                             scoresThread.join();
                             discoverThread.join();
+
+                        // Thread interruption
                         } catch (InterruptedException e) {
                             System.out.println("Interrupted: " + e.getMessage());
                         }
 
-                        /* Spacing */
-                        System.out.println();
+                        // Spacing
+                        System.out.printf("\n ===== LINE SPACING ===== \n\n");
 
                         // Reset section Strings and sectionsFound
                         section1 = null; section2 = null; section3 = null;
@@ -104,9 +108,7 @@ public class MultiThreading {
 
         // Bad file error message
         } catch (IOException e) {
-
             System.out.println("Bad file: " + e.getMessage());
-
         } // End try catch
 
     } // End main method

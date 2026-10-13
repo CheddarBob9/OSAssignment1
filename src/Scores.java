@@ -8,7 +8,9 @@ public class Scores implements Runnable {
 
     @Override
     public void run() {
-        System.out.printf("Scores - Section 2 is: %s%n", section);
+        for (int i = 0; i <60; i++) {
+            System.out.printf("Scores - Section 2 is: %s%n", section);
+        }
     }
 
 }

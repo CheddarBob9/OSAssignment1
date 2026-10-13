@@ -8,7 +8,9 @@ public class Discover implements Runnable {
 
     @Override
     public void run() {
-        System.out.printf("Discover - Section 3 is: %s%n", section);
+        for (int i = 0; i < 50; i++) {
+            System.out.printf("Discover - Section 3 is: %s%n", section);
+        }
     }
 
 }

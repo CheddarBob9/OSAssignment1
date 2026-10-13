@@ -8,7 +8,9 @@ public class Person implements Runnable {
 
     @Override
     public void run() {
-        System.out.printf("Person - Section 1 is: %s%n", section);
+        for (int i = 0; i < 40; i++) {
+            System.out.printf("Person - Section 1 is: %s%n", section);
+        }
     }
 
 }
