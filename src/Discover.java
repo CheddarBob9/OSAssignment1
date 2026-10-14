@@ -36,11 +36,6 @@ public class Discover implements Runnable {
         // Go through sectionWords for the first letter of qualifying words
         for (int i = 0; i < sectionWords.length; i++) {
 
-//            // If the index is empty skip it /* MIGHT BE ABLE TO DELETE THIS SECTION */
-//            if (sectionWords[i].length() == 0) {
-//                continue;
-//            }
-
             // Look at the first letter of each word for a lowercase or digit and add to password
             char firstLetter = sectionWords[i].charAt(0);
 
@@ -48,7 +43,8 @@ public class Discover implements Runnable {
                     (firstLetter >= '0' && firstLetter <= '9')) {
                 password = password + firstLetter;
             }
-        }
+
+        } // End for loop
 
         /* ===== CHECK PASSWORD VALIDITY OF FIRST 6 THEN LAST 6 ===== */
         String sixCharPassword = password;
