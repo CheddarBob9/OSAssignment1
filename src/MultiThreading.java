@@ -9,7 +9,7 @@ public class MultiThreading {
 
         /* ===== INITIALIZE VARIABLES ===== */
         String section1 = null, section2 = null, section3 = null;
-        StringBuilder current = new StringBuilder(); /* CHANGE NAME OF CURRENT */
+        StringBuilder buildingString = new StringBuilder(); /* CHANGE NAME OF CURRENT */
         int starCount = 0;
         int sectionsFound = 0;
         boolean inSection = false; // Section or whitespace in between
@@ -39,7 +39,7 @@ public class MultiThreading {
             /* ===== ACTIONS TO TAKE ONCE READING A SECTION ===== */
             // End of the section, make it a string and trim extra whitespace
             if (ch == '$') {
-                String text = current.toString().trim();
+                String text = buildingString.toString().trim();
 
                 // Assign StringBuilder to respective section
                 if (starCount == 1) {
@@ -57,7 +57,7 @@ public class MultiThreading {
                 }
 
                 // Reset section counters and increment how many sections have been found
-                current.setLength(0); starCount = 0; inSection = false;
+                buildingString.setLength(0); starCount = 0; inSection = false;
                 sectionsFound++;
 
                 /* ===== IF ALL 3 SECTIONS OF A RECORD ARE FOUND MAKE AND SEND THEM TO THREADS ===== */
@@ -77,7 +77,7 @@ public class MultiThreading {
                     discoverThread.join();
 
                     // Spacing
-                    System.out.printf("\n ===== LINE SPACING ===== \n\n");
+                    System.out.printf("\n ===== RECORD SPACING ===== \n\n");
 
                     // Reset section Strings and sectionsFound
                     section1 = null; section2 = null; section3 = null;
@@ -88,13 +88,13 @@ public class MultiThreading {
             } else if (Character.isWhitespace(ch)) {
 
                 // Deal with random whitespace
-                if (current.length() > 0 && current.charAt(current.length() - 1) != ' ') {
-                    current.append(' ');
+                if (buildingString.length() > 0 && buildingString.charAt(buildingString.length() - 1) != ' ') {
+                    buildingString.append(' ');
                 }
 
             // Inside section, not end, not whitespace, write the char
             } else {
-                current.append(ch);
+                buildingString.append(ch);
             } // End if (ch == '$')
 
         } // End while loop
