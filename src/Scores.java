@@ -84,7 +84,7 @@ public class Scores implements Runnable {
         } //  End if (n == 0) else
 
         // Print 60 times
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 60; i++) {
             System.out.println(line);
         }
 

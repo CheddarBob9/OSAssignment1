@@ -73,7 +73,7 @@ public class Discover implements Runnable {
                 + " - passwd is: " + sixCharPassword + " - " + status;
 
         // Print 50 times
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 50; i++) {
             System.out.println(line);
         }
 

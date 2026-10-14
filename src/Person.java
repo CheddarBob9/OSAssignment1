@@ -86,7 +86,7 @@ public class Person implements Runnable {
                 + " - Age: " + age;
 
         // Print 40 times
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 40; i++) {
             System.out.println(line);
         }
     }
