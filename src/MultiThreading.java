@@ -66,20 +66,20 @@ public class MultiThreading {
                     Thread scoresThread = new Thread(new Scores(section2));
                     Thread discoverThread = new Thread(new Discover(section3));
 
-                    // Start thread to call run()
+                    // Start thread
                     personThread.start();
                     scoresThread.start();
                     discoverThread.start();
 
-                    // Fully print one thread before the next
+                    // Join threads to print properly
                     personThread.join();
                     scoresThread.join();
                     discoverThread.join();
 
-                    // Spacing
+                    // Spacing between records
                     System.out.printf("\n ===== RECORD SPACING ===== \n\n");
 
-                    // Reset section Strings and sectionsFound
+                    // Reset section Strings and sectionsFound counter
                     section1 = null; section2 = null; section3 = null;
                     sectionsFound = 0;
                 } // End if (sectionsFound == 3)
@@ -88,7 +88,8 @@ public class MultiThreading {
             } else if (Character.isWhitespace(ch)) {
 
                 // Deal with random whitespace
-                if (buildingString.length() > 0 && buildingString.charAt(buildingString.length() - 1) != ' ') {
+                if (buildingString.length() > 0 &&
+                        buildingString.charAt(buildingString.length() - 1) != ' ') {
                     buildingString.append(' ');
                 }
 

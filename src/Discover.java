@@ -36,10 +36,10 @@ public class Discover implements Runnable {
         // Go through sectionWords for the first letter of qualifying words
         for (int i = 0; i < sectionWords.length; i++) {
 
-            // If the index is empty skip it /* MIGHT BE ABLE TO DELETE THIS SECTION */
-            if (sectionWords[i].length() == 0) {
-                continue;
-            }
+//            // If the index is empty skip it /* MIGHT BE ABLE TO DELETE THIS SECTION */
+//            if (sectionWords[i].length() == 0) {
+//                continue;
+//            }
 
             // Look at the first letter of each word for a lowercase or digit and add to password
             char firstLetter = sectionWords[i].charAt(0);
